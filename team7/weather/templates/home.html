@@ -1,0 +1,69 @@
+{% extends "basic.html" %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block css %}
+    <style>
+        .jumbotron {
+            background: url("{% static 'img/img.png' %}");
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="page-header">
+        <h1>HOME<small> Guide for using Drought Guard</small></h1>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
+                Introduction
+            </h3>
+        </div>
+        <div class="panel-body">
+            <table>
+                <tr>
+                    <td>
+                        <img style="width: 300px; height: 400px" src="{% static 'img/drought.png' %}">
+                    </td>
+                    <td>
+                        <div class="panel-body">
+                            <p>
+                                <h3>What we do</h3>
+                                We provide drought index insurance that is tailored to fit the needs of your specific
+                                situation. By using features including type of crop, duration of coverage, and level of
+                                drought, we can ensure that your crops are fully protected at the lowest possible rate.
+                            </p>
+                            <p>
+                                <h3>How we’re different</h3>
+                                Drought Index Insurance is a new form of insurance, called parametric insurance, in
+                                which
+                                payment is dependent on the adverse weather event, rather than the damage that the
+                                weather
+                                event causes. This makes it easier to insure your crops as you only need to choose a
+                                level
+                                of drought to protect your crops against, pay for the coverage, and sleep easy knowing
+                                that
+                                your payment will be automatically issued if the weather triggers are met.
+                            </p>
+                            <p>
+                                <h3>Advantages</h3>
+                                With our weather index insurance model, you don’t have to have your farm monitored to
+                                make
+                                sure you comply with the behaviors to stay valid for insurance or undergo lengthy damage
+                                assessments by traditional insurance companies. Since our coverage is based on
+                                pre-agreed
+                                weather conditions, our insurance plans are more transparent, fair, and faster than
+                                traditional insurance.
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}{% endblock %}

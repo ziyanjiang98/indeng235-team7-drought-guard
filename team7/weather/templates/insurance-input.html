@@ -1,0 +1,41 @@
+{% extends "basic.html" %}
+{% load static %}
+
+{% block title %}Region prediction input{% endblock %}
+
+{% block css %}{% endblock %}
+
+{% block content %}
+    <div class="page-header">
+        <h1>INSURANCE PRICE<small> Get insurance price based on your location and time</small></h1>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
+                Region prediction</h3>
+        </div>
+        <div class="panel-body">
+            <form method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                    {{ field.label }}
+                    {{ field }}
+                    {% if field.errors %}
+                        <div class="alert alert-danger" role="alert">{{ field.errors }}</div>
+                    {% endif %}
+                {% endfor %}<br/>
+                <div>
+                    TIPS: You can find your county FIPS code from here
+                    <a href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/national/home/?cid=nrcs143_013697"
+                       target="_blank">
+                        Search
+                    </a>
+                </div><br/>
+                <input class="btn btn-primary" type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}{% endblock %}

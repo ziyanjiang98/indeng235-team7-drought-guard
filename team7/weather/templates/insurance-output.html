@@ -1,0 +1,93 @@
+{% extends "basic.html" %}
+{% load static %}
+
+{% block title %}Region prediction output{% endblock %}
+
+{% block css %}{% endblock %}
+
+{% block content %}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                Region prediction
+            </h3>
+        </div>
+        <div class="panel-body">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th colspan="4" style="text-align: center">Insurance Price</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">User</th>
+                    <td>
+                        {{ request.session.info.username }}
+                    </td>
+                    <th scope="row">FIPS</th>
+                    <td>
+                        {{ fips }}
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Insurance interval</th>
+                    <td>
+                        {{ year_month }}
+                    </td>
+                    <th scope="row">Insurance amount</th>
+                    <td>
+                        $ {{ amount }}
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Insurance level</th>
+                    <td>
+                        D{{ level }}
+                    </td>
+                    <th scope="row">Predicted level</th>
+                    <td>
+                        {% if VC == -1 %}
+                            No drought
+                        {% else %}
+                            D{{ VC }}
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" colspan="2">Price</th>
+                    <td colspan="2">
+                        $ {{ premium }}
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <p>
+                            <b>How to buy our service?</b><br/>
+                            Thank you for filling out the form and we hope you are happy with your quoted price. To purchase please select the button below.<br/>
+                            If you wish to see a different quote for a different drought protection level please fill out the form again.
+                        </p>
+                        <p>
+                            <b>How does our prediction work?</b><br/>
+                            Our price is based on our estimated likelihood of the drought occurring from our machine learning model.
+                            If the price is extremely high or even at the price of the coverage, this is because we expect that the drought level requested for protection will occur or is very likely to occur.
+                            If you still want to purchase coverage, please request a more extreme drought level.
+                        </p>
+                        <p>
+                            <b>What is the insurance level?</b><br/>
+                            We also provide our drought prediction ranging from: No drought, D0 - Abnormally dry, D1 - Moderate drought, D2 - Severe drought, D3 - Extreme drought, D4 - Exceptional drought<br/>
+                        </p>
+                        <p>
+                            <b>Thank you for using DroughtGuard!</b>
+                        </p>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <a class="btn btn-primary">Send payment link to my email</a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}{% endblock %}

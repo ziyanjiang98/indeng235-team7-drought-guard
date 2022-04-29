@@ -1,0 +1,65 @@
+{% extends "basic.html" %}
+{% load static %}
+
+{% block title %}Premium{% endblock %}
+
+{% block css %}{% endblock %}
+
+{% block content %}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
+                Premium plan
+            </h3>
+        </div>
+        <div class="panel-body">
+            <form method="post">
+                {% csrf_token %}
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">No premium</h3>
+                    </div>
+                    <div class="panel-body">
+                        <label>
+                            $0.99 per risk report
+                        </label>
+                    </div>
+                </div>
+                <div class="panel panel-warning">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Monthly premium</h3>
+                    </div>
+                    <div class="panel-body">
+                        <label>
+                            $9.99 per month, maximum of 30 risk reports
+                        </label>
+                        <br/>
+                        <label>
+                            <input type="radio" name="premium_option" value="monthly_premium" checked>
+                            Click to choose
+                        </label>
+                    </div>
+                </div>
+                <div class="panel panel-warning">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Yearly premium</h3>
+                    </div>
+                    <div class="panel-body">
+                        <label>
+                            $99.9 per year, infinite risk reports
+                        </label>
+                        <br/>
+                        <label>
+                            <input type="radio" name="premium_option" value="yearly_premium" checked>
+                            Click to choose
+                        </label>
+                    </div>
+                </div>
+                <input class="btn btn-success" type="submit" value="Subscribe">
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}{% endblock %}
